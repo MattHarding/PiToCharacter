@@ -1,24 +1,28 @@
 
 package PiToCharacter;
-import java.math.BigInteger;
+
 import java.util.*;
 import java.io.*;
 
 public class PiToCharacter
 {
-    static int rangeSize = 3846;
+    static int rangeSize = 3704;
     
     
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         //range is the 5 numbers from pi
         int range;
+        
         //holder is the char that comes back from the getChar method
         char holder;
-    
+        
+        File file = new File("C:/pi.txt");
+        
         try
         {
-        Scanner scanner = new Scanner(new File("/src/PiToCharcter/pi.txt"));
+        Scanner scanner = new Scanner(file);
+        
         
         while (scanner.hasNext())
            {
@@ -180,13 +184,15 @@ public class PiToCharacter
             return 'y';
         }
         
-        
-        //I have to use 99999 here instead of groupsize because 26 * groupsize doesn't
-        //equal 99999. It is 3 numbers short, therefor z has a higher(of course to a very 
-        //small degree) chance of being picked than any other number(.00003% to be exact).
-        else if (result >= rangeSize * 25 && result <= 99999)
+        else if (result >= rangeSize * 25 && result < rangeSize * 26)
         {
             return 'z';
+        }
+        
+        //I have changed this to include spaces Version 1.1
+        else if (result >= rangeSize * 26 && result <= 99999)
+        {
+            return ' ';
         }
         
 
