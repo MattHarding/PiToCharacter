@@ -17,7 +17,7 @@ public class PiToCharacter
         //holder is the char that comes back from the getChar method
         char holder;
         
-        File file = new File("C:/pi.txt");
+        File file = new File("pi.txt");
         
         try
         {
